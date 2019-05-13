@@ -1,4 +1,3 @@
-const request = require('request')
 const geocode = require('./utils/geocode.js')
 const forcast = require('./utils/forecast.js')
 
@@ -6,12 +5,16 @@ const forcast = require('./utils/forecast.js')
 
 
 
-geocode('Moscow', (error, data) => {
+geocode('Rome', (error, data) => {
     console.log('error', error)
     console.log('data', data)
+
+    forcast(data.latitude, data.longitude, (error, data) => {
+        console.log('error', error)
+        console.log('data', data)
+    })
+
+
+
 })
 
-forcast(-0.1275, 51.50722, (error, data) => {
-    console.log('error', error)
-    console.log('data', data)
-})
