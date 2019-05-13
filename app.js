@@ -3,15 +3,20 @@ const forcast = require('./utils/forecast.js')
 
 
 
+const userInput = process.argv[2].toString()
+
+geocode(userInput, (error, data) => {
+    if (error) {
+       return console.log(error)
+    }
 
 
-geocode('Rome', (error, data) => {
-    console.log('error', error)
-    console.log('data', data)
-
-    forcast(data.latitude, data.longitude, (error, data) => {
-        console.log('error', error)
-        console.log('data', data)
+    forcast(data.latitude, data.longitude, (error, forcastData) => {
+        if (error) {
+            console.log(error)
+        }
+        console.log(data.location)
+        console.log(forcastData)
     })
 
 
