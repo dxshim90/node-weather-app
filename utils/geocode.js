@@ -19,3 +19,9 @@ const geocode = (address, callback) => {
 }
 
 module.exports = geocode
+
+// const url = "https://api.darksky.net/forecast/6b5984a369af0dd1b3f850e22a652249/37.8267,-122.4233"
+// geocode('London', (error, data) => {
+//     console.log('error', error)
+//     console.log('data', data)
+// })
